@@ -14,6 +14,7 @@ class DetailsItem extends StatelessWidget {
     this.actions,
     this.lateralDetailsAppBar,
     this.pageDetailsAppBar,
+    this.pageAppBarColor,
     super.key,
   });
 
@@ -39,6 +40,9 @@ class DetailsItem extends StatelessWidget {
   /// [MasterDetailsFlow.lateralDetailsAppbar] and
   /// [MasterDetailsFlow.pageDetailsAppBar]
   final DetailsAppBarSize? lateralDetailsAppBar, pageDetailsAppBar;
+
+  /// Background color for appbar when it is in page mode.
+  final Color? pageAppBarColor;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +87,8 @@ class DetailsItem extends StatelessWidget {
           title: title,
           actions: actions,
           primary: settings?.selfPage ?? false,
-          backgroundColor: _backgroundColor(colorScheme, settings),
+          backgroundColor:
+              pageAppBarColor ?? _backgroundColor(colorScheme, settings),
           automaticallyImplyLeading: false,
           leading: _leadingButton(settings),
         );
@@ -92,7 +97,8 @@ class DetailsItem extends StatelessWidget {
           title: title,
           actions: actions,
           primary: settings?.selfPage ?? false,
-          backgroundColor: _backgroundColor(colorScheme, settings),
+          backgroundColor:
+              pageAppBarColor ?? _backgroundColor(colorScheme, settings),
           automaticallyImplyLeading: false,
           leading: _leadingButton(settings),
         );
@@ -101,7 +107,8 @@ class DetailsItem extends StatelessWidget {
           title: title,
           actions: actions,
           primary: settings?.selfPage ?? false,
-          backgroundColor: _backgroundColor(colorScheme, settings),
+          backgroundColor:
+              pageAppBarColor ?? _backgroundColor(colorScheme, settings),
           automaticallyImplyLeading: false,
           leading: _leadingButton(settings),
         );
