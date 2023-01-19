@@ -219,7 +219,6 @@ class _MasterDetailsFlowState extends State<MasterDetailsFlow> {
                       colorScheme.surfaceTint,
                       selectedItem == null ? 0 : 1,
                     ),
-                    elevation: selectedItem == null ? 0 : 10,
                     clipBehavior: Clip.antiAlias,
                     child: MasterDetailsFlowSettings(
                       appBarSize: widget.lateralDetailsAppBar,
