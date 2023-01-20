@@ -21,6 +21,7 @@ class MasterDetailsFlow extends StatefulWidget {
     this.detailsPanelCornersRadius = 12.0,
     this.lateralListTileTheme,
     this.title,
+    this.centerTitleForPage = false,
     this.nothingSelectedWidget,
     this.lateralDetailsAppBar = DetailsAppBarSize.medium,
     this.pageDetailsAppBar = DetailsAppBarSize.large,
@@ -69,6 +70,9 @@ class MasterDetailsFlow extends StatefulWidget {
 
   /// The option title to be showed on the master app bar.
   final Widget? title;
+
+  /// Aligns the title to center when it is in page mode.
+  final bool centerTitleForPage;
 
   /// A widget to be showed in case there is no master selected. If not provided
   /// there will be used a simple text mentioning that no item is selected.
@@ -333,18 +337,21 @@ class _MasterDetailsFlowState extends State<MasterDetailsFlow> {
     switch (appBarSize) {
       case DetailsAppBarSize.small:
         return SliverAppBar(
+          centerTitle: widget.centerTitleForPage,
           leading: widget.leading,
           actions: widget.actions,
           title: widget.title,
         );
       case DetailsAppBarSize.medium:
         return SliverAppBar.medium(
+          centerTitle: widget.centerTitleForPage,
           leading: widget.leading,
           actions: widget.actions,
           title: widget.title,
         );
       case DetailsAppBarSize.large:
         return SliverAppBar.large(
+          centerTitle: widget.centerTitleForPage,
           leading: widget.leading,
           actions: widget.actions,
           title: widget.title,

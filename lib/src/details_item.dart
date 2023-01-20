@@ -15,11 +15,15 @@ class DetailsItem extends StatelessWidget {
     this.lateralDetailsAppBar,
     this.pageDetailsAppBar,
     this.pageAppBarColor,
+    this.centerTitleForPage = false,
     super.key,
   });
 
   /// The title widget to be used in the app bar of the details page
   final Widget title;
+
+  /// Aligns the title to center when it is in page mode.
+  final bool centerTitleForPage;
 
   /// A list of Widgets to display in a row after the [title] widget.
   ///
@@ -85,6 +89,7 @@ class DetailsItem extends StatelessWidget {
       case DetailsAppBarSize.small:
         return SliverAppBar(
           title: title,
+          centerTitle: selfPage ? centerTitleForPage : null,
           actions: actions,
           primary: settings?.selfPage ?? false,
           backgroundColor:
@@ -95,6 +100,7 @@ class DetailsItem extends StatelessWidget {
       case DetailsAppBarSize.medium:
         return SliverAppBar.medium(
           title: title,
+          centerTitle: selfPage ? centerTitleForPage : null,
           actions: actions,
           primary: settings?.selfPage ?? false,
           backgroundColor:
@@ -105,6 +111,7 @@ class DetailsItem extends StatelessWidget {
       case DetailsAppBarSize.large:
         return SliverAppBar.large(
           title: title,
+          centerTitle: selfPage ? centerTitleForPage : null,
           actions: actions,
           primary: settings?.selfPage ?? false,
           backgroundColor:
