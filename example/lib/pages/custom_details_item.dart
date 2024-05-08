@@ -12,13 +12,14 @@ class CustomDetailsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     MasterDetailsFlowSettings? settings = MasterDetailsFlowSettings.of(context);
     bool selfPage = settings?.selfPage ?? false;
-    return WillPopScope(
-      // WillPopScope overrides the system back button so we move back the flow
-      onWillPop: () async {
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (final _) async {
         if (settings?.selfPage == true) {
           settings!.goBack!();
+        } else {
+          if (context.mounted) Navigator.pop(context);
         }
-        return !(settings?.selfPage ?? false);
       },
       child: SizedBox.expand(
         child: Center(

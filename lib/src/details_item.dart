@@ -54,12 +54,16 @@ class DetailsItem extends StatelessWidget {
     final ColorScheme colorScheme = theme.colorScheme;
     final MasterDetailsFlowSettings? settings =
         MasterDetailsFlowSettings.of(context);
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (final _) async {
         if (settings?.selfPage == true) {
           settings!.goBack!();
+        } else {
+          if (context.mounted) {
+            Navigator.pop(context);
+          }
         }
-        return !(settings?.selfPage ?? false);
       },
       child: CustomScrollView(
         slivers: <Widget>[

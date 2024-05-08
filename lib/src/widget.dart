@@ -250,13 +250,7 @@ class _MasterDetailsFlowState extends State<MasterDetailsFlow> {
           Animation<double> primaryAnimation,
           Animation<double> secondaryAnimation,
         ) {
-          return const ZoomPageTransitionsBuilder().buildTransitions<Object>(
-            null,
-            null,
-            primaryAnimation,
-            secondaryAnimation,
-            child,
-          );
+          return FadeTransition(opacity: primaryAnimation, child: child);
         },
         child: focus == Focus.details && selectedItem != null
             ? MasterDetailsFlowSettings(

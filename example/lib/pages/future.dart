@@ -44,7 +44,7 @@ class PageFuture extends StatelessWidget {
 
 /// Custom MasterItem
 class _MasterLoading extends StatelessWidget implements MasterItemBase {
-  const _MasterLoading({super.key});
+  const _MasterLoading();
 
   @override
   Widget build(BuildContext context) {
