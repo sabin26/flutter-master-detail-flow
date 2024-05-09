@@ -13,12 +13,10 @@ class CustomDetailsItem extends StatelessWidget {
     MasterDetailsFlowSettings? settings = MasterDetailsFlowSettings.of(context);
     bool selfPage = settings?.selfPage ?? false;
     return PopScope(
-      canPop: false,
-      onPopInvoked: (final _) async {
+      canPop: !(settings?.selfPage ?? false),
+      onPopInvoked: (final value) async {
         if (settings?.selfPage == true) {
           settings!.goBack!();
-        } else {
-          if (context.mounted) Navigator.pop(context);
         }
       },
       child: SizedBox.expand(

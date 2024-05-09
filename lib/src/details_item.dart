@@ -55,14 +55,10 @@ class DetailsItem extends StatelessWidget {
     final MasterDetailsFlowSettings? settings =
         MasterDetailsFlowSettings.of(context);
     return PopScope(
-      canPop: false,
-      onPopInvoked: (final _) async {
+      canPop: !(settings?.selfPage ?? false),
+      onPopInvoked: (final bool value) async {
         if (settings?.selfPage == true) {
           settings!.goBack!();
-        } else {
-          if (context.mounted) {
-            Navigator.pop(context);
-          }
         }
       },
       child: CustomScrollView(
